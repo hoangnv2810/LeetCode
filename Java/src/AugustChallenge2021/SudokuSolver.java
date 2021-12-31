@@ -7,7 +7,16 @@ public class SudokuSolver {
     static int[][] columns = new int[N][N+1];
     static int[][] boxes = new int[N][N+1];
 
-    static char[][] board;
+    static char[][] board = {
+            {'5','3','.','.','7','.','.','.','.'},
+            {'6','.','.','1','9','5','.','.','.'},
+            {'.','9','8','.','.','.','.','6','.'},
+            {'8','.','.','.','6','.','.','.','3'},
+            {'4','.','.','8','.','3','.','.','1'},
+            {'7','.','.','.','2','.','.','.','6'},
+            {'.','6','.','.','.','.','2','8','.'},
+            {'.','.','.','4','1','9','.','.','5'},
+            {'.','.','.','.','8','.','.','7','9'}};
     static boolean sudokuSovled = false;
     static public void placeNumber(int d, int row, int col){
         int idx = (row/n)*n + col/n;
@@ -48,8 +57,7 @@ public class SudokuSolver {
         }
         else placeNextNumbers(row, col);
     }
-    public static void solveSudoku(char[][] board){
-        board = board;
+    public static void solveSudoku(){
         for(int i = 0; i < N; i++){
             for(int j = 0; j < N; j++){
                 if(board[i][j] != '.'){
@@ -63,23 +71,7 @@ public class SudokuSolver {
 
 
     public static void main(String[] args) {
-        char board[][] = {
-                {'5','3','.','.','7','.','.','.','.'},
-                {'6','.','.','1','9','5','.','.','.'},
-                {'.','9','8','.','.','.','.','6','.'},
-                {'8','.','.','.','6','.','.','.','3'},
-                {'4','.','.','8','.','3','.','.','1'},
-                {'7','.','.','.','2','.','.','.','6'},
-                {'.','6','.','.','.','.','2','8','.'},
-                {'.','.','.','4','1','9','.','.','5'},
-                {'.','.','.','.','8','.','.','7','9'}};
-//        for(char[] row: board){
-//            for(char x : row){
-//                System.out.print(x);
-//            }
-//            System.out.println();
-//        }
-        solveSudoku(board);
+        solveSudoku();
         for(int i = 0; i < board.length; i++){
             if(i%3 == 0 && i != 0)
                 System.out.println("___________________");
